@@ -61,14 +61,12 @@ public class SignUp extends AppCompatActivity {
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
+                   public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
 
-                                if (task.isSuccessful()) {
-
-                                    User user = new User(
-                                            fullName,
-
-                                            email
+                               User user = new User(
+                                     fullName,
+                                     email
 
                                     );
 
@@ -100,6 +98,7 @@ public class SignUp extends AppCompatActivity {
                         });
 
             }
+                             
             @Override
             public void onClick(View v) {
                 switch (v.getId()) {
